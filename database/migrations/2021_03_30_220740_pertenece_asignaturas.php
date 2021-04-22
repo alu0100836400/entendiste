@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class PerteneceAsignaturas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('perteneceAsignaturas', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            
+
+            $table->string('idAsignatura');
             $table->string('idUsuario');
-            $table->string('password');
-            $table->string('nombre');
-            $table->string('apellidos');
             $table->timestamps();
 
-            $table->primary('idUsuario');
+            $table->primary(['idAsignatura', 'idUsuario']);
+            $table->foreign('idAsignatura')->references('idAsignatura')->on('asignaturas');
+            $table->foreign('idUsuario')->references('idUsuario')->on('users');
         });
     }
 
@@ -33,6 +33,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        //
     }
 }
