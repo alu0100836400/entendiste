@@ -16,8 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomeController::class); //esto llama al método invoke de HomeController
+Route::get('/', HomeController::class)->name('inicio'); //esto llama al método invoke de HomeController
 //Route::get('cursos', [CursosController::class, 'index']); //así si tienes más de una funcion en el controller
-Route::get('login', LoginController::class);
-Route::get('inicio', HomeController::class);
-Route::get('asignaturas', AsignaturasController::class);
+Route::get('login', LoginController::class)->name('login');
+Route::get('asignaturas', AsignaturasController::class)->name('asignaturas');
