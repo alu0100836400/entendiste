@@ -1,14 +1,12 @@
-@extends('layouts.app')
-
-@section('title', 'Login')
-
+<!DOCTYPE html>
 <head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+
   <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
 </head>
-@section('content')
-      
-  
+<body>
 <!-- partial:index.partial.html -->
 <div class="grid">
   <div class="cube">
@@ -55,4 +53,6 @@
 </div>
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
-  @endsection
+
+</body>
+</html>

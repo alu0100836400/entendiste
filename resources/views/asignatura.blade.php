@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
-    Asignatura
-@endsection
+@section('title', $asignatura)
 
 @section('content')
     Poner aqui los temas de una asignatura

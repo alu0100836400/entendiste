@@ -11,13 +11,13 @@
     <nav>
       <img src="{{asset('images/logo-largo.png')}}" alt="logo" class="logo" />
       <ul>
-        <li><a href="#">Inicio</a></li>
+        <li><a href="{{route('inicio')}}">Inicio</a></li>
         <li>
-          <a href="#">Asignaturas <i class="fas fa-caret-down"></i></a>
+          <a href="{{route('asignaturas')}}">Asignaturas <i class="fas fa-caret-down"></i></a>
           <ul>
             <li><a href="{{route('asignaturas')}}">TODAS</a></li>
-            <li><a href="#">AEDA</a></li>
-            <li><a href="#">Principios de computadores</a></li>
+            <li><a href="{{route('asignatura', 'AEDA')}}">AEDA</a></li>
+            <li><a href="{{route('asignatura', 'Principios de computadores')}}">Principios de computadores</a></li>
           </ul>
         </li>
         <li>
