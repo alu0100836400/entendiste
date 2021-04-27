@@ -9,6 +9,8 @@ class preguntas extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'idPregunta';
+
     function propietario() {
         return $this->hasOne('App\Models\User');
     }

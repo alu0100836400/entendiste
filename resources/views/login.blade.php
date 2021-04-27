@@ -18,7 +18,7 @@
           <input type="radio" name="tabs" id="tab1" checked="checked"/>
           <label class="nav" for="tab1">Entrar</label>
           <div class="tab-content" id="loginTabContent">
-            <form action="comprobar_login.php" method="post" id="loginForm">
+            <form action={{route('inicio')}} method="get" id="loginForm">
               <label class="frm" for="email">Usuario</label>
               <input type="text" name="login" required="required"/>
               <label class="frm" for="password">Contraseña</label>
