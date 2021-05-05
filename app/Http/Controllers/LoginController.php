@@ -5,17 +5,17 @@ use App\Models\User;
 
 class LoginController extends Controller
 {
-    public function __invoke() {
+    public function index() {
         return view('login');
     }
 
-    public function login($iduser, $password) {
+    public function validateLogin($iduser, $password) {
         $user = User::where('idUsuario', $iduser)->where('password', $password)->get();
         if($user->count() == 1) {
-            return true;
+            return view('inicio');
         }
         else {
-            return false;
+            return view('login');
         }
     }
 }
