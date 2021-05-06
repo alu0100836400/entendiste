@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //en el register solo se debe vincular cosas en el contenedor de servicios. Nunca registrar detector de eventos, rutas u otra función.
     }
 
     /**
