@@ -3,5 +3,5 @@
 @section('title', $asignatura)
 
 @section('content')
-    Poner aqui los temas de una asignatura
+    Esta es la asignatura {{$asignatura}}
 @endsection
