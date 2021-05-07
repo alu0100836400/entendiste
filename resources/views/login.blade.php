@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('fakecookie')
+  <?php setcookie("user", "fake", time()+1); ?>
+@endsection
 @section('title', 'Login')
 
 <head>
@@ -18,7 +20,7 @@
           <input type="radio" name="tabs" id="tab1" checked="checked"/>
           <label class="nav" for="tab1">Entrar</label>
           <div class="tab-content" id="loginTabContent">
-            <form action={{route('validation', 'alu0100836400', '1234')}} method="post" id="loginForm">
+            <form action={{route('validation')}} method="post" id="loginForm">
               @csrf
               <label class="frm" for="email">Usuario</label>
               <input type="text" name="login" required="required"/>
@@ -35,6 +37,7 @@
           <label class="nav" for="tab2">Registro</label>
           <div class="tab-content" id="signupTabContent">
             <form action="registro.php" method="post" id="registForm">
+              @csrf
               <label class="frm" for="email">Email</label>
               <input type="text" name="login" required="required"/>
               <label class="frm" for="password">Contraseña</label>

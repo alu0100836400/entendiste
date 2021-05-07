@@ -1,3 +1,9 @@
+@yield('fakecookie')
+<?php
+  if(!isset($_COOKIE["user"]))
+    header(route('login')); //probar location:login.php
+?>
+
 <!DOCTYPE html>
 <head>
   <meta charset="UTF-8">

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Illuminate\Http\Request;
+
+define("ONE_MONTH_", 2592000);
 
 class LoginController extends Controller
 {
@@ -9,9 +12,10 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function validateLogin($iduser, $password) {
-        $user = User::where('idUsuario', $iduser)->where('password', $password)->get();
+    public function validateLogin(Request $request) {
+        $user = User::where('idUsuario', $request->login)->where('password', $request->password)->get();
         if($user->count() == 1) {
+            setcookie("user", $request->login, time()+ONE_MONTH_);
             return view('inicio');
         }
         else {

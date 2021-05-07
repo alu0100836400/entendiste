@@ -20,6 +20,6 @@ Route::post('/', HomeController::class)->name('inicioPost'); //esto llama al mé
 //Route::get('cursos', [CursosController::class, 'index']); //así si tienes más de una funcion en el controller
 Route::get('/', HomeController::class)->name('inicio');
 Route::get('login', [LoginController::class, 'index'])->name('login');
-Route::post('validation/{user, password}', [LoginController::class, 'validateLogin'])->name('validation');
+Route::post('validation', [LoginController::class, 'validateLogin'])->name('validation');
 Route::get('asignaturas', [AsignaturasController::class, 'index'])->name('asignaturas');
 Route::get('asignaturas/{asignatura}', [AsignaturasController::class, 'show'])->name('asignatura');
