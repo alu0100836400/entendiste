@@ -68,7 +68,7 @@ nav ul ul li {
   position: relative;
 }
 
-nav ul ul ul li {
+nav ul ul ul  { /*li*/
   position: relative;
   top: -60px;
   left: 150px;
@@ -76,4 +76,9 @@ nav ul ul ul li {
 
 .fas {
   color: #fff;
+}
+
+.li-asignaturas {
+  font-size: 15px;
+  line-height: 30px;
 }

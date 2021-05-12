@@ -1,7 +1,9 @@
 @yield('fakecookie')
 <?php
-  if(!isset($_COOKIE["user"]))
-    header(route('login')); //probar location:login.php
+  use App\Models\Asignaturas;
+  if(!isset($_COOKIE["user"])){
+    header('Location: ../login.blade.php');
+  }
 ?>
 
 <!DOCTYPE html>
@@ -21,18 +23,16 @@
         <li>
           <a href="{{route('asignaturas')}}">Asignaturas <i class="fas fa-caret-down"></i></a>
           <ul>
+            <?php 
+              $asignaturas = Asignaturas::asignaturasRecientes();
+            ?>
             <li><a href="{{route('asignaturas')}}">TODAS</a></li>
-            <li><a href="{{route('asignatura', 'AEDA')}}">AEDA</a></li>
-            <li><a href="{{route('asignatura', 'Principios de computadores')}}">Principios de computadores</a></li>
+            @for($i = 0; $i < count($asignaturas); $i++)
+              <li><a class="li-asignaturas" href="{{route('asignatura', $asignaturas[$i])}}">{{$asignaturas[$i]}}</a></li>
+            @endfor
           </ul>
         </li>
-        <li>
-          <a href="#">Cuenta<i class="fas fa-caret-down"></i></a>
-          <ul>
-            <li><a href="#">Front End</a></li>
-            <li><a href="#">Back End</a></li>
-          </ul>
-        </li>
+        <li><a href="#">Cuenta<i class="fas fa-caret-down"></i></a></li>
         <li><a href="{{route('login')}}">Salir</a></li>
       </ul>
     </nav>
