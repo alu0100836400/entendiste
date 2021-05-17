@@ -10,6 +10,7 @@ class respuestas extends Model
     use HasFactory;
 
     protected $primaryKey = ['idPregunta', 'idAlumno'];
+    protected $timestamps = true;
 
     function preguntas() {
         return $this->hasOne('App\Models\preguntas');

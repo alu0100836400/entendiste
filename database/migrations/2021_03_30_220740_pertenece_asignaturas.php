@@ -33,6 +33,6 @@ class PerteneceAsignaturas extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('perteneceAsignaturas');
     }
 }
