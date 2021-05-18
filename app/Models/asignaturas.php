@@ -9,7 +9,7 @@ class asignaturas extends Model
 {
     use HasFactory;
     
-    protected $timestamps = true;
+    public $timestamps = true;
 
     function preguntas() {
         return $this->hasMany('App\Models\preguntas');
