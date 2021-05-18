@@ -228,8 +228,51 @@ canvas {
   animation-fill-mode: forwards;
 }
 
-/*
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-*/
+@-webkit-keyframes fadeOut {
+  from {
+    left: 50%;
+    top: 50%;
+    width: 1%;
+    height: 1%;
+    opacity: 1;
+  }
+  to {
+    left: -25%;
+    top: -25%;
+    width: 150%;
+    height: 150%;
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeOut {
+  from {
+    left: 50%;
+    top: 50%;
+    width: 1%;
+    height: 1%;
+    opacity: 1;
+  }
+  to {
+    left: -25%;
+    top: -25%;
+    width: 150%;
+    height: 150%;
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    left: 50%;
+    top: 50%;
+    width: 1%;
+    height: 1%;
+    opacity: 1;
+  }
+  to {
+    left: -25%;
+    top: -25%;
+    width: 150%;
+    height: 150%;
+    opacity: 1;
+  }
+}
