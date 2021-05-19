@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class asignaturas extends Model
 {
     use HasFactory;
+    
+    public $timestamps = true;
 
     function preguntas() {
         return $this->hasMany('App\Models\preguntas');
