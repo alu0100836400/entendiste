@@ -10,6 +10,7 @@ class preguntas extends Model
     use HasFactory;
 
     protected $primaryKey = 'idPregunta';
+    public $timestamps = true;
 
     function propietario() {
         return $this->hasOne('App\Models\User');
