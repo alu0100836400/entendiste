@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function __invoke() {
-        return view('inicio');
+    public function __invoke($asignaturasRecientes) {
+        return view('inicio', ['asignRecientes' => $asignaturasRecientes]);
     }
 }

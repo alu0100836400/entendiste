@@ -13,7 +13,7 @@ class respuestas extends Model
     public $timestamps = true;
 
     function preguntas() {
-        return $this->hasOne('App\Models\preguntas');
+        return $this->hasOne('App\Models\preguntas', 'idPregunta'); //cambiar, no rula
     }
 
     function user() {

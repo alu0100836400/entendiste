@@ -2,7 +2,7 @@
 <?php
   use App\Models\Asignaturas;
   if(!isset($_COOKIE["user"])){
-    header('Location: ../login.blade.php');
+    header('Location: ../login.blade.php'); // echo de javascript redirigiendo
   }
 ?>
 

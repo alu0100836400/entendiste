@@ -21,7 +21,6 @@ class asignaturas extends Model
 
     static function asignaturasRecientes() {
         return ['AEDA', 'Procesadores de Lenguajes'];
-        //$recientes = $this->where();
     }
 
     // function pertenenciaAsignaturas() {

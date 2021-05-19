@@ -21,6 +21,6 @@ class preguntas extends Model
     }
 
     function respuestas() {
-        return $this->hasMany('App\Models\respuestas');
+        return $this->hasMany('App\Models\respuestas', 'idPregunta', 'idPregunta'); //cambiar a respuestas::class
     }
 }
