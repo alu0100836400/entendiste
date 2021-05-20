@@ -1,6 +1,5 @@
-@yield('fakecookie')
 <?php
-  use App\Models\Asignaturas;
+  //use App\Models\Asignaturas;
   if(!isset($_COOKIE["user"])){
     header('Location: ../login.blade.php'); // echo de javascript redirigiendo
   }
@@ -24,12 +23,13 @@
           <a href="{{route('asignaturas')}}">Asignaturas <i class="fas fa-caret-down"></i></a>
           <ul>
             <?php 
-              $asignaturas = Asignaturas::asignaturasRecientes();
+            if(!isset($asignRecientes)) $asignRecientes = [];
             ?>
             <li><a href="{{route('asignaturas')}}">TODAS</a></li>
-            @for($i = 0; $i < count($asignaturas); $i++)
-              <li><a class="li-asignaturas" href="{{route('asignatura', $asignaturas[$i])}}">{{$asignaturas[$i]}}</a></li>
-            @endfor
+            @foreach ($asignRecientes as $item)
+              <li><a class="li-asignaturas" href="{{route('asignatura', $item)}}">{{$item}}</a></li>
+            @endforeach
+
           </ul>
         </li>
         <li><a href="#">Cuenta<i class="fas fa-caret-down"></i></a></li>

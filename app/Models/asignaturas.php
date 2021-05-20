@@ -10,6 +10,7 @@ class asignaturas extends Model
     use HasFactory;
     
     public $timestamps = true;
+    protected $primaryKey = "idAsignatura";
 
     function preguntas() {
         return $this->hasMany('App\Models\preguntas');

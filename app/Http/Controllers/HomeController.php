@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\perteneceAsignaturas;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function __invoke($asignaturasRecientes) {
-        return view('inicio', ['asignRecientes' => $asignaturasRecientes]);
+    public function __invoke() {
+        return view('inicio', ['asignRecientes' => perteneceAsignaturas::asignaturasRecientes()]);
     }
 }
