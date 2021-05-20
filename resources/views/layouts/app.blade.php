@@ -1,5 +1,4 @@
 <?php
-  //use App\Models\Asignaturas;
   if(!isset($_COOKIE["user"])){
     header('Location: ../login.blade.php'); // echo de javascript redirigiendo
   }
@@ -23,7 +22,8 @@
           <a href="{{route('asignaturas')}}">Asignaturas <i class="fas fa-caret-down"></i></a>
           <ul>
             <?php 
-            if(!isset($asignRecientes)) $asignRecientes = [];
+              use App\Models\perteneceAsignaturas;
+               $asignRecientes = perteneceAsignaturas::asignaturasRecientes();
             ?>
             <li><a href="{{route('asignaturas')}}">TODAS</a></li>
             @foreach ($asignRecientes as $item)

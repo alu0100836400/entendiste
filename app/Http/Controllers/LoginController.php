@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\perteneceAsignaturas;
-use App\Models\asignaturas;
 use Illuminate\Http\Request;
 
 define("ONE_MONTH_", 2592000);
@@ -11,6 +10,7 @@ define("ONE_MONTH_", 2592000);
 class LoginController extends Controller
 {
     public function index() {
+        setcookie("user", "", time()-1);
         return view('login');
     }
 

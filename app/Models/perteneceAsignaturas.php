@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\asignaturas;
 
 class perteneceAsignaturas extends Model
 {
@@ -23,7 +22,7 @@ class perteneceAsignaturas extends Model
     }
 
     static function asignaturasRecientes() {
-        if(!isset($_COOKIE['user'])) return ['IB', 'Cálculo', 'Estadística'];
+        if(!isset($_COOKIE['user'])) return ['empty'];
         else {
             $response = perteneceAsignaturas::join('asignaturas', 'perteneceAsignaturas.idAsignatura', 'asignaturas.idAsignatura')
                                         ->select('asignaturas.nombreAsignatura')
