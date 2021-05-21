@@ -18,7 +18,7 @@ class LoginController extends Controller
         $user = User::where('idUsuario', $request->login)->where('password', $request->password)->get();
         if($user->count() == 1) {
             setcookie("user", $request->login, time()+ONE_MONTH_);
-            return view('inicio', ['asignRecientes' => perteneceAsignaturas::asignaturasRecientes()]);
+            return view('validation');
         }
         else {
             return view('login');

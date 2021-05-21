@@ -20,10 +20,6 @@ class asignaturas extends Model
         return $this->hasOne('App\Models\User');
     }
 
-    static function asignaturasRecientes() {
-        return ['AEDA', 'Procesadores de Lenguajes'];
-    }
-
     // function pertenenciaAsignaturas() {
     //     return $this->hasMany('App\Models\pertenenciaAsignaturas');
     // }

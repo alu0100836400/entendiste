@@ -1,18 +1,14 @@
-<?php
-  if(!isset($_COOKIE["user"])){
-    header('Location: ../login.blade.php'); // echo de javascript redirigiendo
-  }
-?>
-
 <!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <title>Entendiste | @yield('title')</title>
-
   <link rel="stylesheet" href="{{asset('css/menu-bar.css')}}">
-
 </head>
 <body>
+  <?php
+    if(!isset($_COOKIE["user"]))
+      echo "<script> window.location.replace('".route('login')."') </script>";
+  ?>
   <div class="dropdown">
     <nav>
       <img src="{{asset('images/logo-largo.png')}}" alt="logo" class="logo" />
@@ -23,13 +19,12 @@
           <ul>
             <?php 
               use App\Models\perteneceAsignaturas;
-               $asignRecientes = perteneceAsignaturas::asignaturasRecientes();
+              $asignRecientes = perteneceAsignaturas::asignaturasRecientes();
             ?>
             <li><a href="{{route('asignaturas')}}">TODAS</a></li>
             @foreach ($asignRecientes as $item)
               <li><a class="li-asignaturas" href="{{route('asignatura', $item)}}">{{$item}}</a></li>
             @endforeach
-
           </ul>
         </li>
         <li><a href="#">Cuenta<i class="fas fa-caret-down"></i></a></li>
