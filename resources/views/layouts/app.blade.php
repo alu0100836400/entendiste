@@ -3,6 +3,7 @@
   <meta charset="UTF-8">
   <title>Entendiste | @yield('title')</title>
   <link rel="stylesheet" href="{{asset('css/menu-bar.css')}}">
+  @yield('head')
 </head>
 <body>
   <?php
@@ -18,6 +19,7 @@
           <a href="{{route('asignaturas')}}">Asignaturas <i class="fas fa-caret-down"></i></a>
           <ul>
             <?php 
+              // pa quitar esto hay que pasarle a las vistas en todos los controllers: ['asignaturas' => perteneceAsignaturas::asignaturasByUsuario()]
               use App\Models\perteneceAsignaturas;
               $asignRecientes = perteneceAsignaturas::asignaturasRecientes();
             ?>

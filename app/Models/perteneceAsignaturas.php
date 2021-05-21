@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+define("MAX_RECENT_SUBJECTS_", 5);
+
 class perteneceAsignaturas extends Model
 {
     use HasFactory;
@@ -13,7 +15,20 @@ class perteneceAsignaturas extends Model
     protected $table = 'perteneceasignaturas';
     public $timestamps = true;
 
-    function asignaturasByUsuario($idUsuario) {} //no se necesita saber
+    static function asignaturasByUsuario() {
+        if(!isset($_COOKIE['user'])) return ['empty'];
+        else {
+            $response = perteneceAsignaturas::join('asignaturas', 'perteneceAsignaturas.idAsignatura', 'asignaturas.idAsignatura')
+                                        ->select('asignaturas.nombreAsignatura')
+                                        ->where('idUsuario', $_COOKIE['user'])
+                                        ->orderBy('perteneceAsignaturas.updated_at', 'desc')->get()->all();
+            $array_asignaturas = [];
+            foreach($response as $item)
+                array_push($array_asignaturas, $item->attributes['nombreAsignatura']);
+
+            return $array_asignaturas;
+        }
+    }
     
     static function usuariosByAsignatura($idAsignatura) {
         if(!isset($idAsignatura)) return [];
@@ -35,17 +50,6 @@ class perteneceAsignaturas extends Model
     }
 
     static function asignaturasRecientes() {
-        if(!isset($_COOKIE['user'])) return ['empty'];
-        else {
-            $response = perteneceAsignaturas::join('asignaturas', 'perteneceAsignaturas.idAsignatura', 'asignaturas.idAsignatura')
-                                        ->select('asignaturas.nombreAsignatura')
-                                        ->where('idUsuario', $_COOKIE['user'])
-                                        ->orderBy('perteneceAsignaturas.updated_at', 'desc')->get()->all();
-            $array_asignaturas = [];
-            foreach($response as $item)
-                array_push($array_asignaturas, $item->attributes['nombreAsignatura']);
-
-            return $array_asignaturas;
-        }
+        return array_slice(perteneceAsignaturas::asignaturasByUsuario(), 0, MAX_RECENT_SUBJECTS_, true);
     }
 }
