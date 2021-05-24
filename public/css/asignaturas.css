@@ -3,14 +3,9 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
-  
-  body, button{
-    font-family: 'Helvetica Neue', arial, sans-serif;
-  }
-  
+
   .controls{
     padding: 1%;
-    background: #333;
     color: #eee; 
     margin: auto;
     display: flex;
@@ -36,7 +31,7 @@
   }
   
   button.active{
-    background: #68b8c4;
+    background: rgb(202,126,76);
   }
   
   button:focus{
@@ -51,7 +46,6 @@
     padding: 2% 2% 0;
     text-align: justify !important;
     font-size: 0.1px;
-    background: #68b8c4;
     
     -webkit-backface-visibility: hidden;
   }
@@ -70,7 +64,7 @@
   
   .container .mix{
     text-align: left;
-    background: #03899c;
+    background: rgb(202,126,76);
     margin-bottom: 2%;
     display: none;
   }
@@ -84,7 +78,7 @@
   }
   
   .container .mix:after{
-    content: attr(data-myorder);
+    content: attr(asignatura); /*data-myorder*/
     color: white;
     font-size: 16px;
     display: inline-block;

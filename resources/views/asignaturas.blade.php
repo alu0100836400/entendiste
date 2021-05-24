@@ -7,49 +7,32 @@
 
 @section('content')
     Asignaturas
-    <ul>
-        @foreach ($asignaturas as $asignatura)
-            <li><a class="li-asignaturas" href="{{route('asignatura', $asignatura)}}">{{$asignatura}}</a></li>
-        @endforeach
-    </ul>
-
-    <?php
-        use App\Models\User;
-
-        $user = User::find("alu0100836400");
-        //echo $user;
-
-    ?>
-    
     <div class="controls">
         <label>Filter:</label>
-        
-        <button class="filter" data-filter="all">All</button>
-        <button class="filter" data-filter=".category-1">Category 1</button>
-        <button class="filter" data-filter=".category-2">Category 2</button>
+        <!-- el ordenamiento no rula todavia -->
+        <button class="filter" data-filter="all">Todo</button>
+        <button class="filter" data-filter=".category-1">A-Z</button>
+        <button class="filter" data-filter=".category-2">Fecha</button>
       </div>
       
       <div class="pager-list">
           <!-- Pagination buttons will be generated here -->
       </div>
-      
-      <div id="Container" class="container">
-        <div class="mix category-1" data-myorder="1"></div>
-        <div class="mix category-1" data-myorder="2"></div>
-        <div class="mix category-1" data-myorder="3"></div>
-        <div class="mix category-2" data-myorder="4"></div>
-        <div class="mix category-1" data-myorder="5"></div>
-        <div class="mix category-1" data-myorder="6"></div>
-        <div class="mix category-2" data-myorder="7"></div>
-        <div class="mix category-2" data-myorder="8"></div>
-        
+    <div id="Container" class="container">
+        {{$cont = 0}}
+        @foreach ($asignaturas as $asignatura)
+            {{$cont++}}
+            <a class="li-asignaturas" href="{{route('asignatura', $asignatura)}}"><div class="mix category-1" data-myorder="{{$cont}}" asignatura="{{$asignatura}}"></div></a>
+        @endforeach
         <div class="gap"></div>
         <div class="gap"></div>
-      </div>
+    </div>
 
-      <script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
+    <script type="text/javascript"> 
         $(function(){
             $('#Container').mixItUp();
         });
-      </script>
+    </script>
 @endsection

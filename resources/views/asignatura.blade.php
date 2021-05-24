@@ -4,4 +4,38 @@
 
 @section('content')
     Esta es la asignatura {{$asignatura}}
+
+
+
+
+    <div class="controls">
+        <label>Filter:</label>
+        <!-- el ordenamiento no rula todavia -->
+        <button class="filter" data-filter="all">Todo</button>
+        <button class="filter" data-filter=".category-1">A-Z</button>
+        <button class="filter" data-filter=".category-2">Fecha</button>
+      </div>
+      
+      <div class="pager-list">
+          <!-- Pagination buttons will be generated here -->
+      </div>
+    <div id="Container" class="container">
+        {{$cont = 0}}
+        @foreach ($temas as $tema)
+            {{$cont++}}
+            <a class="li-asignaturas" href="{{route('asignatura', $tema)}}"><div class="mix category-1" data-myorder="{{$cont}}" asignatura="{{$tema}}"></div></a>
+        @endforeach
+        <div class="gap"></div>
+        <div class="gap"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
+    <script type="text/javascript"> 
+        $(function(){
+            $('#Container').mixItUp();
+        });
+    </script>
+
+
 @endsection
