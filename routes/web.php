@@ -3,6 +3,8 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AsignaturasController;
+use App\Http\Controllers\AsignaturaController;
+use App\Http\Controllers\PreguntasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +23,5 @@ Route::get('/', HomeController::class)->name('inicio'); //esto llama al método 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('validation', [LoginController::class, 'validateLogin'])->name('validation'); //paso intermedio para que se establezca la cookie correctamente
 Route::get('asignaturas', [AsignaturasController::class, 'index'])->name('asignaturas');
-Route::get('asignaturas/{asignatura}', [AsignaturasController::class, 'show'])->name('asignatura');
+Route::get('asignaturas/{id}', [AsignaturaController::class, 'index'])->name('asignatura');
+Route::get('asignaturas/{asignatura}/{pregunta}', PreguntasController::class)->name('pregunta');

@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use PerteneceAsignaturas;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,7 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             AsignaturasSeeder::class,
-            PerteneceAsignaturasSeeder::class
+            PerteneceAsignaturasSeeder::class,
+            PreguntasSeeder::class
         ]);
     }
 }

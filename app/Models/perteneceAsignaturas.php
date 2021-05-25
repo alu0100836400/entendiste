@@ -19,12 +19,15 @@ class perteneceAsignaturas extends Model
         if(!isset($_COOKIE['user'])) return ['empty'];
         else {
             $response = perteneceAsignaturas::join('asignaturas', 'perteneceAsignaturas.idAsignatura', 'asignaturas.idAsignatura')
-                                        ->select('asignaturas.nombreAsignatura')
+                                        ->select('asignaturas.idAsignatura', 'asignaturas.nombreAsignatura')
                                         ->where('idUsuario', $_COOKIE['user'])
                                         ->orderBy('perteneceAsignaturas.updated_at', 'desc')->get()->all();
             $array_asignaturas = [];
-            foreach($response as $item)
-                array_push($array_asignaturas, $item->attributes['nombreAsignatura']);
+            foreach($response as $item) {
+                $array_asignatura = ['id' => $item->attributes['idAsignatura'],
+                                     'nombre' => $item->attributes['nombreAsignatura']];
+                array_push($array_asignaturas, $array_asignatura);
+            }
 
             return $array_asignaturas;
         }

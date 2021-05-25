@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-use App\Models\perteneceAsignaturas;
 use Illuminate\Http\Request;
 
 define("ONE_MONTH_", 2592000);

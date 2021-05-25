@@ -25,7 +25,7 @@
             ?>
             <li><a href="{{route('asignaturas')}}">TODAS</a></li>
             @foreach ($asignRecientes as $item)
-              <li><a class="li-asignaturas" href="{{route('asignatura', $item)}}">{{$item}}</a></li>
+              <li><a class="li-asignaturas" href="{{route('asignatura', $item['id'])}}">{{$item['nombre']}}</a></li>
             @endforeach
           </ul>
         </li>
