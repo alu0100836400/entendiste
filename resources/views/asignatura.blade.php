@@ -1,14 +1,12 @@
 @extends('layouts.app')
 
-@section('title', $asignatura)
+@section('title', $asignatura['nombreAsignatura'])
 @section('head')
     <link rel="stylesheet" href="{{asset('css/asignaturas.css')}}">
 @endsection
 
 @section('content')
-    Esta es la asignatura {{$asignatura}}
-
-
+    Esta es la asignatura {{$asignatura['nombreAsignatura']}}
 
 
     <div class="controls">
@@ -27,7 +25,11 @@
 
         @foreach ($preguntas as $pregunta)
             {{$cont++}}
-            <a class="li-asignaturas" href="{{route('pregunta', ['pregunta' => $pregunta['pregunta'], 'asignatura' => $asignatura])}}"><div class="mix category-1" data-myorder="{{$cont}}" asignatura="{{$pregunta['pregunta']}}"></div></a>
+            <div class="mix category-1" data-myorder="{{$cont}}" asignatura="{{$pregunta['pregunta']}}">
+                <span>@include('layouts.mini-diagram')</span>
+                <div style="display:inline;visibility:visible">Titulo</div>
+            </div>
+            
         @endforeach
         <div class="gap"></div>
         <div class="gap"></div>

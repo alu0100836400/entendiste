@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             AsignaturasSeeder::class,
             PerteneceAsignaturasSeeder::class,
-            PreguntasSeeder::class
+            PreguntasSeeder::class,
+            RespuestasSeeder::class
         ]);
     }
 }
