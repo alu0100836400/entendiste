@@ -60,7 +60,7 @@
     border-radius: 90px;
     clip: rect(0,90px,180px,0);
 } 
-#pieSlice2 {
+.pieSlice2 {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -o-transform: rotate(180deg);

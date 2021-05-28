@@ -32,13 +32,24 @@ class preguntas extends Model
                                         ->orderBy('preguntas.created_at', 'desc')->get()->all();
             $array_preguntas = [];
             foreach($response as $item) {
+                $porcentaje = preguntas::porcentajeByPregunta($item);
                 $array_pregunta = ['id' => $item->attributes['idPregunta'],
                                  'idAsignatura' => $item->attributes['idAsignatura'],
-                                 'pregunta' => $item->attributes['pregunta']];
+                                 'pregunta' => $item->attributes['pregunta'],
+                                 'porcentaje' => $porcentaje['porcentaje'],
+                                 'numRespuestas' => $porcentaje['numRespuestas']];
             
                 array_push($array_preguntas, $array_pregunta);
             }
             return $array_preguntas;
         }
+    }
+
+    static function porcentajeByPregunta($pregunta) {
+        $positivos = $pregunta->respuestas()->where('respuesta', 1)->count();
+        $negativos = $pregunta->respuestas()->where('respuesta', 0)->count();
+        $numRespuestas = $positivos+$negativos;
+        if($numRespuestas == 0) return ['porcentaje' => 0, 'numRespuestas' => 0];
+        else return ['porcentaje' => ($positivos/$numRespuestas)*100, 'numRespuestas' => $numRespuestas];
     }
 }

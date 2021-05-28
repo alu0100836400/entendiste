@@ -6,9 +6,6 @@
 @endsection
 
 @section('content')
-    Esta es la asignatura {{$asignatura['nombreAsignatura']}}
-
-
     <div class="controls">
         <label>Filter:</label>
         <!-- el ordenamiento no rula todavia -->
@@ -25,9 +22,17 @@
 
         @foreach ($preguntas as $pregunta)
             {{$cont++}}
-            <div class="mix category-1" data-myorder="{{$cont}}" asignatura="{{$pregunta['pregunta']}}">
-                <span>@include('layouts.mini-diagram')</span>
-                <div style="display:inline;visibility:visible">Titulo</div>
+            {{$tema = $pregunta['pregunta']}}
+            {{$clase = str_replace(' ', '', $tema)}}
+            
+            <div class="mix category-1" data-myorder="{{$cont}}" asignatura="{{$tema}}">
+                <div></div>
+                <span>@include('layouts.mini-diagram', ['porcentaje' => $pregunta['porcentaje'], 
+                                                        'objectrotate' => $clase, 
+                                                        'pieSlice1' => ($clase.'1'), 
+                                                        'pieSlice2' => ($clase.'2')]) </span>
+                <div class="category-1">meter mas infooooooooooooooooooooooooooooooooooooooooooooo</div>
+                
             </div>
             
         @endforeach
@@ -42,6 +47,4 @@
             $('#Container').mixItUp();
         });
     </script>
-
-
 @endsection
