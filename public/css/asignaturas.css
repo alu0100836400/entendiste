@@ -45,7 +45,7 @@
   .container{
     padding: 2% 2% 0;
     text-align: justify !important;
-    font-size: 0.1px;
+    font-size: 0.1px; /*quitar para ver todos los string*/
     
     -webkit-backface-visibility: hidden;
   }
@@ -71,6 +71,7 @@
   
   .container .mix.category-1{
     border-top: 2px solid limegreen;
+    font-size: 16px; /*para ver lo que hay dentro*/
   }
   
   .container .mix.category-2{

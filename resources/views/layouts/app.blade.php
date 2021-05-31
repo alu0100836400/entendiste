@@ -37,4 +37,6 @@
   <div class="container">
     @yield('content')
   </div>
+  @include('components.add-modal')
 </body>
+

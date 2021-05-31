@@ -12,11 +12,12 @@
         <button class="filter" data-filter="all">Todo</button>
         <button class="filter" data-filter=".category-1">A-Z</button>
         <button class="filter" data-filter=".category-2">Fecha</button>
-      </div>
+    </div>
       
-      <div class="pager-list">
+    <div class="pager-list">
           <!-- Pagination buttons will be generated here -->
-      </div>
+    </div>
+    @include('components.add-button')
     <div id="Container" class="container">
         {{$cont = 0}}
 
@@ -31,7 +32,7 @@
                                                         'objectrotate' => $clase, 
                                                         'pieSlice1' => ($clase.'1'), 
                                                         'pieSlice2' => ($clase.'2')]) </span>
-                <div class="category-1">meter mas infooooooooooooooooooooooooooooooooooooooooooooo</div>
+                <div class="category-1">meter mas infooooooooo</div>
                 
             </div>
             
