@@ -23,5 +23,7 @@ Route::get('/', HomeController::class)->name('inicio'); //esto llama al método 
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('validation', [LoginController::class, 'validateLogin'])->name('validation'); //paso intermedio para que se establezca la cookie correctamente
 Route::get('asignaturas', [AsignaturasController::class, 'index'])->name('asignaturas');
+Route::post('asignaturas', [AsignaturasController::class, 'create'])->name('nuevaAsignatura');
 Route::get('asignaturas/{id}', [AsignaturaController::class, 'index'])->name('asignatura');
+Route::post('asignaturas/{id}', [AsignaturaController::class, 'create'])->name('nuevaPregunta');
 Route::get('asignaturas/{asignatura}/{pregunta}', PreguntasController::class)->name('pregunta');

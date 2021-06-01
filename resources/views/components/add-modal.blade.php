@@ -3,10 +3,12 @@
 <div id="modal" class="modal modal__bg" role="dialog" aria-hidden="true">
     <div class="modal__dialog">
         <div class="modal__content">
-            <h1>Nuevo tema</h1>
-            <form>
-                <textarea></textarea>
-                <button class='confirmarBtn' type="submit">Confirmar</button>
+            <h1>{{$titulo}}</h1>
+            <!-- hay que pasarle al modal la ruta directamente -->
+            <form id='nuevoItem' action={{route('nuevaPregunta', $idAsignatura)}} method="post">
+                @csrf
+                <input name="tema"/>
+                <button onclick='form_submit()' id='btnNew' class='confirmarBtn' type="submit" name="btnNuevo">Confirmar</button>
             </form>
             
             <!-- modal close button -->
@@ -16,9 +18,13 @@
             
         </div>
     </div>
-  </div>
+</div>
 
-<script>
+<script type="text/javascript">
+    function form_submit() {
+        document.getElementById("nuevoItem").submit();
+    }  
+    
     var Modal = (function() {
 
         var trigger = $qsa('.modal__trigger'); // what you click to activate the modal

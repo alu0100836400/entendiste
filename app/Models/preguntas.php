@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class preguntas extends Model
 {
@@ -51,5 +53,16 @@ class preguntas extends Model
         $numRespuestas = $positivos+$negativos;
         if($numRespuestas == 0) return ['porcentaje' => 0, 'numRespuestas' => 0];
         else return ['porcentaje' => ($positivos/$numRespuestas)*100, 'numRespuestas' => $numRespuestas];
+    }
+
+    static function insertarNueva($idAsignatura, $pregunta) {
+        //hacer comprobaciones primero
+        DB::table('preguntas')->insert([
+            'idAsignatura' => $idAsignatura,
+            'idProfesor' => $_COOKIE['user'],
+            'pregunta' => $pregunta,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
     }
 }

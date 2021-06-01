@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class asignaturas extends Model
 {
@@ -23,4 +25,15 @@ class asignaturas extends Model
     // function pertenenciaAsignaturas() {
     //     return $this->hasMany('App\Models\pertenenciaAsignaturas');
     // }
+
+    static function insertarNueva($idAsignatura, $nombreAsignatura, $password) {
+        DB::table('asignaturas')->insert([
+            'idAsignatura' => $idAsignatura,
+            'idProfesorAlta' => $_COOKIE['user'],
+            'nombreAsignatura' => $nombreAsignatura,
+            'password' => $password,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+    }
 }

@@ -32,8 +32,7 @@
                                                         'objectrotate' => $clase, 
                                                         'pieSlice1' => ($clase.'1'), 
                                                         'pieSlice2' => ($clase.'2')]) </span>
-                <div class="category-1">meter mas infooooooooo</div>
-                
+                <div class="category-1">meter mas infooooooooo</div> 
             </div>
             
         @endforeach
@@ -48,4 +47,7 @@
             $('#Container').mixItUp();
         });
     </script>
+@endsection
+@section('modal')
+    @include('components.add-modal', ['titulo' => 'Nuevo tema', 'idAsignatura' => $asignatura['idAsignatura']]) <!-- pasarle titulo, asignatura
 @endsection
