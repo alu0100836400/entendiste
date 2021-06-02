@@ -28,11 +28,11 @@
             
             <div class="mix category-1" data-myorder="{{$cont}}" asignatura="{{$tema}}">
                 <div></div>
-                <span>@include('layouts.mini-diagram', ['porcentaje' => $pregunta['porcentaje'], 
+                <span>@include('components.mini-diagram', ['porcentaje' => $pregunta['porcentaje'], 
                                                         'objectrotate' => $clase, 
                                                         'pieSlice1' => ($clase.'1'), 
                                                         'pieSlice2' => ($clase.'2')]) </span>
-                <div class="category-1">meter mas infooooooooo</div> 
+                <div class="category-1">meter mas infooooo</div> 
             </div>
             
         @endforeach

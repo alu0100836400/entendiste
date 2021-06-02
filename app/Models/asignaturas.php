@@ -13,6 +13,7 @@ class asignaturas extends Model
     
     public $timestamps = true;
     protected $primaryKey = "idAsignatura";
+    protected $fillable = ['updated_at'];
 
     function preguntas() {
         return $this->hasMany('App\Models\preguntas');

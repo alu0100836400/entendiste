@@ -6,7 +6,6 @@
 @endsection
 
 @section('content')
-    Asignaturas
     <div class="controls">
         <label>Filter:</label>
         <!-- el ordenamiento no rula todavia -->

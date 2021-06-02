@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AsignaturasController;
 use App\Http\Controllers\AsignaturaController;
@@ -18,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomeController::class)->name('inicio'); //esto llama al método invoke de HomeController
-//Route::get('cursos', [CursosController::class, 'index']); //así si tienes más de una funcion en el controller
+Route::get('/', HomeController::class)->name('inicio');
+Route::get('cuenta', UserController::class)->name('cuenta');
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('validation', [LoginController::class, 'validateLogin'])->name('validation'); //paso intermedio para que se establezca la cookie correctamente
 Route::get('asignaturas', [AsignaturasController::class, 'index'])->name('asignaturas');
