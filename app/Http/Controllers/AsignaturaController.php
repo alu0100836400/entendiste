@@ -12,8 +12,7 @@ class AsignaturaController extends Controller
     }
 
     public function create(Request $request, $idAsignatura) {
-        //crear el nuevo registro ($request->tema)
-        preguntas::insertarNueva($idAsignatura, $request->tema);
+        preguntas::insertarNueva($idAsignatura, $request->Tema);
         return view('asignatura', ['preguntas' => preguntas::preguntasByAsignatura($idAsignatura), 'asignatura' => asignaturas::find($idAsignatura)]);
     }
 }

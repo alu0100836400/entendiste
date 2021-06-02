@@ -5,9 +5,11 @@
         <div class="modal__content">
             <h1>{{$titulo}}</h1>
             <!-- hay que pasarle al modal la ruta directamente -->
-            <form id='nuevoItem' action={{route('nuevaPregunta', $idAsignatura)}} method="post">
+            <form id='nuevoItem' action={{$ruta}} method="post">
                 @csrf
-                <input name="tema"/>
+                @foreach ($campos as $campo)
+                    <label>{{$campo}}: <input name={{$campo}} /></label>
+                @endforeach
                 <button onclick='form_submit()' id='btnNew' class='confirmarBtn' type="submit" name="btnNuevo">Confirmar</button>
             </form>
             

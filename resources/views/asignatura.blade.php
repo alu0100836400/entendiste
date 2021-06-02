@@ -49,5 +49,7 @@
     </script>
 @endsection
 @section('modal')
-    @include('components.add-modal', ['titulo' => 'Nuevo tema', 'idAsignatura' => $asignatura['idAsignatura']]) <!-- pasarle titulo, asignatura
+    @include('components.add-modal', [  'titulo' => 'Nuevo tema',
+                                        'ruta' => route('nuevaPregunta', $asignatura['idAsignatura']),
+                                        'campos' => ['Tema']]) 
 @endsection

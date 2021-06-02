@@ -18,6 +18,7 @@
       <div class="pager-list">
           <!-- Pagination buttons will be generated here -->
       </div>
+      @include('components.add-button')
     <div id="Container" class="container">
         {{$cont = 0}}
         @foreach ($asignaturas as $asignatura)
@@ -35,4 +36,9 @@
             $('#Container').mixItUp();
         });
     </script>
+@endsection
+@section('modal')
+    @include('components.add-modal', [  'titulo' => 'Nueva asignatura',
+                                        'ruta' => route('nuevaAsignatura'),
+                                        'campos' => ['ID', 'Nombre', 'Password']]) 
 @endsection

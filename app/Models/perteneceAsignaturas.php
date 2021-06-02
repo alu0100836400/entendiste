@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 define("MAX_RECENT_SUBJECTS_", 5);
 
@@ -54,5 +56,14 @@ class perteneceAsignaturas extends Model
 
     static function asignaturasRecientes() {
         return array_slice(perteneceAsignaturas::asignaturasByUsuario(), 0, MAX_RECENT_SUBJECTS_, true);
+    }
+
+    static function insertarNueva($idAsignatura) {
+        DB::table('perteneceasignaturas')->insert([
+            'idAsignatura' => $idAsignatura,
+            'idUsuario' => $_COOKIE['user'],
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
     }
 }

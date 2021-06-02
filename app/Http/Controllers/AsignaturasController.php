@@ -17,9 +17,10 @@ class AsignaturasController extends Controller
         return view('asignatura', ['asignatura' => $asignatura]);
     }
 
-    public function create(Request $request, $idAsignatura) {
+    public function create(Request $request) { //https://www.ull.es/apps/guias/guias/view_degree/588/ aquí todos los códigos
         //tambien hay que actualizar la tabla perteneceAsignaturas
-        asignaturas::insertarNueva($idAsignatura, $request->nombreAsignatura, $request->password);
+        asignaturas::insertarNueva($request->ID, $request->Nombre, $request->Password);
+        perteneceAsignaturas::insertarNueva($request->ID);
         return view('asignaturas', ['asignaturas' => perteneceAsignaturas::asignaturasByUsuario()]);
     }
 }
