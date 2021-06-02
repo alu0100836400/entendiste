@@ -40,3 +40,5 @@ Defensa oral (calendario académico): martes 13 a viernes 16 de julio de 2021
  Entrega documentación en Secretaría: viernes 16 de julio de 2021 (13:00) 
 */
 ?>
+
+https://programacionymas.com/blog/consumir-una-api-usando-retrofit

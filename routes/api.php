@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\AsignaturasController;
 use App\Http\Controllers\api\UserController;
@@ -17,5 +16,5 @@ use App\Http\Controllers\api\UserController;
 */
 
 Route::get('/user', [UserController::class, 'index']);
-Route::get('/user', [UserController::class, 'index']);
+Route::get('/validation', [UserController::class, 'validateLogin']);
 Route::get('/asignaturas', [AsignaturasController::class, 'index']);
