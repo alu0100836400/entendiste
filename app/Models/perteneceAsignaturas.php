@@ -17,12 +17,12 @@ class perteneceAsignaturas extends Model
     protected $table = 'perteneceasignaturas';
     public $timestamps = true;
 
-    static function asignaturasByUsuario() {
-        if(!isset($_COOKIE['user'])) return ['empty'];
+    static function asignaturasByUsuario($user) {
+        if(!isset($user)) return ['empty'];
         else {
             $response = perteneceAsignaturas::join('asignaturas', 'perteneceAsignaturas.idAsignatura', 'asignaturas.idAsignatura')
                                         ->select('asignaturas.idAsignatura', 'asignaturas.nombreAsignatura')
-                                        ->where('idUsuario', $_COOKIE['user'])
+                                        ->where('idUsuario', $user)
                                         ->orderBy('perteneceAsignaturas.updated_at', 'desc')->get()->all();
             $array_asignaturas = [];
             foreach($response as $item) {
@@ -54,8 +54,8 @@ class perteneceAsignaturas extends Model
         }
     }
 
-    static function asignaturasRecientes() {
-        return array_slice(perteneceAsignaturas::asignaturasByUsuario(), 0, MAX_RECENT_SUBJECTS_, true);
+    static function asignaturasRecientes($user) {
+        return array_slice(perteneceAsignaturas::asignaturasByUsuario($user), 0, MAX_RECENT_SUBJECTS_, true);
     }
 
     static function insertarNueva($idAsignatura) {

@@ -42,3 +42,11 @@ Defensa oral (calendario académico): martes 13 a viernes 16 de julio de 2021
 ?>
 
 https://programacionymas.com/blog/consumir-una-api-usando-retrofit
+
+https://aprendible.com/series/laravel-desde-cero
+
+https://eloquentbyexample.com/course/lesson/lesson-10-relationships-i
+
+https://programacionymas.com/blog/consumir-una-api-usando-retrofit
+
+https://www.udemy.com/course/curso-intensivo-de-laravel-y-android-usando-jwt-y-kotlin/?referralCode=6589DEAB7DB1B010DFC3

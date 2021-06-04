@@ -7,8 +7,11 @@
 </head>
 <body>
   <?php
-    if(!isset($_COOKIE["user"]))
+    if(!isset($_COOKIE["user"])) {
       echo "<script> window.location.replace('".route('login')."') </script>";
+      $user = "";
+    }
+    else $user = $_COOKIE['user'];
   ?>
   <div class="dropdown">
     <nav>
@@ -21,7 +24,7 @@
             <?php 
               // pa quitar esto hay que pasarle a las vistas en todos los controllers: ['asignaturas' => perteneceAsignaturas::asignaturasByUsuario()]
               use App\Models\perteneceAsignaturas;
-              $asignRecientes = perteneceAsignaturas::asignaturasRecientes();
+              $asignRecientes = perteneceAsignaturas::asignaturasRecientes($user);
             ?>
             <li><a href="{{route('asignaturas')}}">TODAS</a></li>
             @foreach ($asignRecientes as $item)

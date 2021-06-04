@@ -16,5 +16,5 @@ use App\Http\Controllers\api\UserController;
 */
 
 Route::get('/user', [UserController::class, 'index']);
-Route::get('/validation', [UserController::class, 'validateLogin']);
+Route::get('/login', [UserController::class, 'validateLogin']);
 Route::get('/asignaturas', [AsignaturasController::class, 'index']);

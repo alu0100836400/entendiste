@@ -10,7 +10,7 @@ class AsignaturasController extends Controller
 {
 
     public function index() {
-        return view('asignaturas', ['asignaturas' => perteneceAsignaturas::asignaturasByUsuario()]);
+        return view('asignaturas', ['asignaturas' => perteneceAsignaturas::asignaturasByUsuario($_COOKIE['user'])]);
     }
 
     public function show($asignatura) {
@@ -18,9 +18,8 @@ class AsignaturasController extends Controller
     }
 
     public function create(Request $request) { //https://www.ull.es/apps/guias/guias/view_degree/588/ aquí todos los códigos
-        //tambien hay que actualizar la tabla perteneceAsignaturas
         asignaturas::insertarNueva($request->ID, $request->Nombre, $request->Password);
         perteneceAsignaturas::insertarNueva($request->ID);
-        return view('asignaturas', ['asignaturas' => perteneceAsignaturas::asignaturasByUsuario()]);
+        return view('asignaturas', ['asignaturas' => perteneceAsignaturas::asignaturasByUsuario($_COOKIE['user'])]);
     }
 }
