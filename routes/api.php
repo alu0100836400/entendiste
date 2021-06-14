@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\AsignaturasController;
+use App\Http\Controllers\api\AsignaturaController;
 use App\Http\Controllers\api\UserController;
 
 /*
@@ -18,3 +19,4 @@ use App\Http\Controllers\api\UserController;
 Route::get('/user', [UserController::class, 'index']);
 Route::get('/login', [UserController::class, 'validateLogin']);
 Route::get('/asignaturas', [AsignaturasController::class, 'index']);
+Route::get('/preguntas', [AsignaturaController::class, 'index']);
