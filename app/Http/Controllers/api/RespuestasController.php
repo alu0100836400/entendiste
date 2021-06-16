@@ -12,4 +12,9 @@ class RespuestasController extends Controller
         $response = respuestas::respuestaByPregunta($request->idPregunta, $request->user);
         return json_encode($response);
     }
+
+    static public function update(Request $request) {
+        $response = respuestas::setRespuesta($request->idPregunta, $request->user, $request->respuesta);
+        return json_encode($response);
+    }
 }

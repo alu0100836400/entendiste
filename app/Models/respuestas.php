@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class respuestas extends Model
 {
@@ -11,6 +13,20 @@ class respuestas extends Model
 
     protected $primaryKey = ['idPregunta', 'idAlumno'];
     public $timestamps = true;
+
+    /**
+     * The attributes that aren't mass assignable.
+     *
+     * @var array
+     */
+    protected $guarded = [];
+    public $incrementing = false;
+
+    protected function setKeysForSaveQuery($query)
+    {
+        return $query->where('idPregunta', $this->getAttribute('iPregunta'))
+            ->where('idAlumno', $this->getAttribute('idAlumno'));
+    }
 
     function preguntas() {
         return $this->hasOne('App\Models\preguntas', 'idPregunta'); //cambiar, no rula
@@ -37,5 +53,16 @@ class respuestas extends Model
                                         'respuesta'  => (bool)false,
                                         'empty'      => (bool)true];
         else return $array_[0];
+    }
+
+    static function setRespuesta($idPregunta, $usuario, $respuesta) {
+
+        return DB::table('respuestas')->upsert([
+            'idPregunta' => $idPregunta,
+            'idAlumno' => $usuario,
+            'respuesta' => $respuesta,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ], ['idPregunta', 'idAlumno'], ['respuesta', 'updated_at']);
     }
 }

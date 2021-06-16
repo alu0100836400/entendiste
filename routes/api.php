@@ -22,3 +22,4 @@ Route::get('/login', [UserController::class, 'validateLogin']);
 Route::get('/asignaturas', [AsignaturasController::class, 'index']);
 Route::get('/preguntas', [AsignaturaController::class, 'index']);
 Route::get('/respuesta', [RespuestasController::class, 'index']);
+Route::post('/respuesta', [RespuestasController::class, 'update']);
