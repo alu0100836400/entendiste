@@ -56,13 +56,25 @@ class respuestas extends Model
     }
 
     static function setRespuesta($idPregunta, $usuario, $respuesta) {
+        if($respuesta == "true") $respuesta = 1; 
+        else $respuesta = 0;
 
-        return DB::table('respuestas')->upsert([
+        $response = DB::table('respuestas')->upsert([
             'idPregunta' => $idPregunta,
             'idAlumno' => $usuario,
             'respuesta' => $respuesta,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ], ['idPregunta', 'idAlumno'], ['respuesta', 'updated_at']);
+
+        $body = [   'idPregunta' => $idPregunta,
+                    'idAlumno'   => $usuario,
+                    'respuesta'  => (bool)$respuesta, //cambiar
+                    'empty'      => (bool)false,
+                    'error'      => "(bool)false"];
+        if($response != 2) $body['error'] = (bool)true;
+        else $body['error'] = (bool)false;
+
+        return $body;
     }
 }

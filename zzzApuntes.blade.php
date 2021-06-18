@@ -24,13 +24,6 @@
 
 <?php
 /*
-Conv. Junio TFG: Acta 23.Jun.2021
-Entrega memoria: jueves 10 de junio de 2021
- Propuesta tribunal: lunes 14 de junio de 2021
-Aprobación de los tribunales (reunión CTFG): miércoles 16 de junio de 2021
-Defensa oral (calendario académico): viernes 18 a miércoles 23 de junio de 2021
- Entrega documentación en Secretaría: miércoles 23 de junio de 2021 (13:00)
-
  
 Conv. Julio TFG: Acta 16.Jul.2021
 Entrega memoria: viernes 2 de julio de 2021
