@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
             'password' => '123456',
             'nombre' => 'Javier',
             'apellidos' => 'Alberto Martín',
+            'rol' => 0,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -28,6 +29,7 @@ class UserSeeder extends Seeder
             'password' => '123456',
             'nombre' => 'Harry',
             'apellidos' => 'Potter',
+            'rol' => 0,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -36,6 +38,7 @@ class UserSeeder extends Seeder
             'password' => '123456',
             'nombre' => 'Ron',
             'apellidos' => 'Whesley',
+            'rol' => 0,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -44,6 +47,7 @@ class UserSeeder extends Seeder
             'password' => '123456',
             'nombre' => 'Matías',
             'apellidos' => 'Prats',
+            'rol' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -52,6 +56,7 @@ class UserSeeder extends Seeder
             'password' => '123456',
             'nombre' => 'Pedro',
             'apellidos' => 'Piqueras',
+            'rol' => 1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

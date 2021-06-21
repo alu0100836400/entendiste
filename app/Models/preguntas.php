@@ -35,11 +35,12 @@ class preguntas extends Model
             $array_preguntas = [];
             foreach($response as $item) {
                 $porcentaje = preguntas::porcentajeByPregunta($item);
-                $array_pregunta = ['id' => $item->attributes['idPregunta'],
-                                 'idAsignatura' => $item->attributes['idAsignatura'],
-                                 'pregunta' => $item->attributes['pregunta'],
-                                 'porcentaje' => $porcentaje['porcentaje'],
-                                 'numRespuestas' => $porcentaje['numRespuestas']];
+                $array_pregunta = [ 'id' => $item->attributes['idPregunta'],
+                                    'idAsignatura' => $item->attributes['idAsignatura'],
+                                    'idProfesor' => $item->attributes['idProfesor'],
+                                    'pregunta' => $item->attributes['pregunta'],
+                                    'porcentaje' => $porcentaje['porcentaje'],
+                                    'numRespuestas' => $porcentaje['numRespuestas']];
             
                 array_push($array_preguntas, $array_pregunta);
             }
