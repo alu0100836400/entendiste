@@ -37,4 +37,18 @@ class asignaturas extends Model
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
     }
+
+    static function buscarAsignatura($asignatura, $modo) {
+        if($modo == 1) $attribute = 'idAsignatura';
+        else $attribute = 'nombreAsignatura';
+
+        $response = asignaturas::where($attribute, 'like', '%'.$asignatura.'%')->get();
+        $array_response = [];
+        foreach($response as $item) {
+            $asignatura_ = ['id' => $item->attributes['idAsignatura'],
+                            'nombre' => $item->attributes['nombreAsignatura']];
+            array_push($array_response, $asignatura_);
+        }
+        return $array_response;
+    }
 }

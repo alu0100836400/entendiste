@@ -43,3 +43,9 @@ https://eloquentbyexample.com/course/lesson/lesson-10-relationships-i
 https://programacionymas.com/blog/consumir-una-api-usando-retrofit
 
 https://www.udemy.com/course/curso-intensivo-de-laravel-y-android-usando-jwt-y-kotlin/?referralCode=6589DEAB7DB1B010DFC3
+
+
+DB::enableQueryLog();
+// query
+
+DB::getQueryLog();
