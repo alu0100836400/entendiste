@@ -9,7 +9,7 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function validateLogin(Request $request) {
-        $user = User::where('idUsuario', $request->username)->where('password', $request->password)->get();
+        $user = User::where('idUsuario', $request->username)->where('password', $request->password)->where('rol', 0)->get();
         if($user->count() == 1) return response()->json(['key' => 'true']);
         else return response()->json(['key' => 'false']);
     }

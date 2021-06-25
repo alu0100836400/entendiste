@@ -19,4 +19,8 @@ class AsignaturasController extends Controller
     public function search(Request $request) {
         return json_encode(asignaturas::buscarAsignatura($request->asignatura, $request->modo));
     }
+
+    public function access(Request $request) {
+        return perteneceAsignaturas::insertarNueva($request->asignatura, $request->user);
+    }
 }

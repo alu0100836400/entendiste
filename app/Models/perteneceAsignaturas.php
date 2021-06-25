@@ -58,12 +58,14 @@ class perteneceAsignaturas extends Model
         return array_slice(perteneceAsignaturas::asignaturasByUsuario($user), 0, MAX_RECENT_SUBJECTS_, true);
     }
 
-    static function insertarNueva($idAsignatura) {
-        DB::table('perteneceasignaturas')->insert([
+    static function insertarNueva($idAsignatura, $usuario) {
+        $response = DB::table('perteneceasignaturas')->insert([
             'idAsignatura' => $idAsignatura,
-            'idUsuario' => $_COOKIE['user'],
+            'idUsuario' => $usuario,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
+        if($response != true) $response = false;
+        return ['insercionCorrecta' => $response];
     }
 }

@@ -70,9 +70,8 @@ class respuestas extends Model
         $body = [   'idPregunta' => $idPregunta,
                     'idAlumno'   => $usuario,
                     'respuesta'  => (bool)$respuesta, //cambiar
-                    'empty'      => (bool)false,
-                    'error'      => "(bool)false"];
-        if($response != 2) $body['error'] = (bool)true;
+                    'empty'      => (bool)false];
+        if($response != 2 && $response != 1) $body['error'] = (bool)true;
         else $body['error'] = (bool)false;
 
         return $body;

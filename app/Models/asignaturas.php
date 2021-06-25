@@ -46,7 +46,8 @@ class asignaturas extends Model
         $array_response = [];
         foreach($response as $item) {
             $asignatura_ = ['id' => $item->attributes['idAsignatura'],
-                            'nombre' => $item->attributes['nombreAsignatura']];
+                            'nombre' => $item->attributes['nombreAsignatura'],
+                            'password' => $item->attributes['password']];
             array_push($array_response, $asignatura_);
         }
         return $array_response;

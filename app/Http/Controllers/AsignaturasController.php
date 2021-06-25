@@ -19,7 +19,7 @@ class AsignaturasController extends Controller
 
     public function create(Request $request) { //https://www.ull.es/apps/guias/guias/view_degree/588/ aquí todos los códigos
         asignaturas::insertarNueva($request->ID, $request->Nombre, $request->Password);
-        perteneceAsignaturas::insertarNueva($request->ID);
+        perteneceAsignaturas::insertarNueva($request->ID, $_COOKIE['user']);
         return view('asignaturas', ['asignaturas' => perteneceAsignaturas::asignaturasByUsuario($_COOKIE['user'])]);
     }
 }
