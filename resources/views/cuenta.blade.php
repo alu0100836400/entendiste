@@ -3,8 +3,14 @@
 @section('title', 'Cuenta')
 
 @section('content')
-    - cambiar contraseña
-    - modo oscuro?
+    - cambiar contraseña<br/>
+    - modo oscuro?<br/>
+    <br/><br/>
+    Web<br/>
+    -ver cuantos han contestado<br/>
+    APP<br/>
+    -poner acceso a asignaturas desde cualquier activity<br/>
+    -logout facil<br/>
 @endsection
 
 <?php
