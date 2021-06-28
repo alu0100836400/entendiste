@@ -9,8 +9,13 @@
     Web<br/>
     -ver cuantos han contestado<br/>
     APP<br/>
-    -poner acceso a asignaturas desde cualquier activity<br/>
-    -logout facil<br/>
+    -buscar solo asignaturas que no tenga en mi lista<br/>
+    -poner la imagen principal<br/>
+    -configuracion (cambiar contraseña, cambiar nombre)<br/>
+    -hacer ver que la lista está vacía cuando no hay items<br/>
+    -cambiar el estilo al spinner<br/>
+    -[futuro] cambiar tonalidad de cada tema según la respuesta
+
 @endsection
 
 <?php
