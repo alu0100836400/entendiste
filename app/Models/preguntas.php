@@ -38,10 +38,12 @@ class preguntas extends Model
                 $array_pregunta = [ 'id' => $item->attributes['idPregunta'],
                                     'idAsignatura' => $item->attributes['idAsignatura'],
                                     'idProfesor' => $item->attributes['idProfesor'],
+                                    'nombreProfesor' => User::nameById($item->attributes['idProfesor']),
                                     'pregunta' => $item->attributes['pregunta'],
                                     'porcentaje' => $porcentaje['porcentaje'],
-                                    'numRespuestas' => $porcentaje['numRespuestas']];
-            
+                                    'numRespuestas' => $porcentaje['numRespuestas'],
+                                    'fechaCreacion' => $item->attributes['created_at']];
+                                                            //Carbon::createFromFormat('d/m/y')
                 array_push($array_preguntas, $array_pregunta);
             }
             return $array_preguntas;

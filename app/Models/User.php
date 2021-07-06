@@ -54,6 +54,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\asignaturas');
     }
 
+    static function nameById($id) {
+        $profesor = User::where('idUsuario', $id)->get()->all()[0];
+        return $profesor['nombre']." ".$profesor['apellidos'];
+    }
+
     // function pertenenciaAsignaturas() {
     //     return $this->hasMany('App\Models\pertenenciaAsignaturas');
     // }

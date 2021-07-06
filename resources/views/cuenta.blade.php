@@ -7,7 +7,8 @@
     - modo oscuro?<br/>
     <br/><br/>
     Web<br/>
-    -ver cuantos han contestado<br/>
+    -mejorar info de cada tema<br/>
+    -terminar ordenamiento<br/>
     APP<br/>
     -configuracion (cambiar contraseña, cambiar nombre)<br/>
     -[futuro] cambiar tonalidad de cada tema según la respuesta

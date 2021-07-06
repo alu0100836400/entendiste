@@ -32,7 +32,8 @@
                                                         'objectrotate' => $clase, 
                                                         'pieSlice1' => ($clase.'1'), 
                                                         'pieSlice2' => ($clase.'2')]) </span>
-                <div class="category-1">meter mas infooooo</div> 
+                <div class="subject-info">Han contestado {{$pregunta['numRespuestas']}} personas</div><br/>
+                <div class="subject-info">Dado de alta por {{$pregunta['nombreProfesor']}} el día {{$pregunta['fechaCreacion']}}</div>  
             </div>
             
         @endforeach
