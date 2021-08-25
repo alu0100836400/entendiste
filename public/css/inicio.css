@@ -1,0 +1,31 @@
+
+p {
+    font: 800 1em/1.5 "Neuton"; 
+    color: #000000; /*color de la letra*/
+    text-align: center; 
+
+    text-transform: uppercase;
+    letter-spacing: .5em;
+    display: inline-block;
+    border: 4px double #ca7e4cff;
+    border-width: 6px 0;
+    padding: 1.5em 0em;
+    position: absolute;
+    top: 18%;
+    left: 43%;
+    width: 50em;  /* 40em */
+    margin: 0 0 0 -20em;
+}
+    
+span {
+    font: 100 2em/1 "Oswald", sans-serif;
+    letter-spacing: 0;
+    padding: .25em 0 .325em;
+    display: block;
+    margin: 0 auto;
+    text-shadow: 0 0 80px #ca7e4cff;
+}
+
+.italic {
+    font-style: italic;
+}
