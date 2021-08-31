@@ -22,4 +22,6 @@ use App\Models\respuestas;
 
 //respuestas::respuestaByPregunta('15', 'alu001');
 
+echo $debug->hash;
+
 ?>

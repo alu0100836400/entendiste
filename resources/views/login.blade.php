@@ -32,14 +32,14 @@
             <input type="radio" name="tabs" id="tab2"/>
             <label class="nav" for="tab2">Registro</label>
             <div class="tab-content" id="signupTabContent">
-              <form action="registro.php" method="post" id="registForm">
+              <form action={{route('register')}} method="post" id="registForm">
                 @csrf
                 <label class="frm" for="email">Email</label>
                 <input type="text" name="login" required="required"/>
                 <label class="frm" for="password">Contraseña</label>
                 <input type="password" name="password" required="required"/>
                 <label class="frm" for="password">Confirma la contraseña</label>
-                <input type="password" name="password" required="required"/>
+                <input type="password" name="password2" required="required"/>
                 <button id="loginBtn" type="submit">Registro</button>
               </form>
             </div>
