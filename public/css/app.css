@@ -34,7 +34,7 @@ body {
 }
 .grid .cube .item {
   background-color: #fadedeff;        /*background-color: #e6e6e6;*/
-  height: 345px;
+  height: 375px;
   width: 300px;
   border-radius: 5px;
   -webkit-transform: translateZ(172.5px);
@@ -214,7 +214,7 @@ body {
 
 canvas {
   width: 300px;
-  height: 345px;
+  height: 375px; /*era 345*/
   pointer-events: none;
   z-index: -1;
 }

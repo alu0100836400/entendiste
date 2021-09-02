@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
             'nombre' => 'Javier',
             'apellidos' => 'Alberto Martín',
             'rol' => 0,
+            'hash' => '1',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -30,6 +31,7 @@ class UserSeeder extends Seeder
             'nombre' => 'Harry',
             'apellidos' => 'Potter',
             'rol' => 0,
+            'hash' => '1',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -39,6 +41,7 @@ class UserSeeder extends Seeder
             'nombre' => 'Ron',
             'apellidos' => 'Whesley',
             'rol' => 0,
+            'hash' => '1',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -48,6 +51,7 @@ class UserSeeder extends Seeder
             'nombre' => 'Matías',
             'apellidos' => 'Prats',
             'rol' => 1,
+            'hash' => '1',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);
@@ -57,6 +61,7 @@ class UserSeeder extends Seeder
             'nombre' => 'Pedro',
             'apellidos' => 'Piqueras',
             'rol' => 1,
+            'hash' => '1',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
         ]);

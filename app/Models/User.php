@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class User extends Authenticatable
 {
@@ -57,6 +59,19 @@ class User extends Authenticatable
     static function nameById($id) {
         $profesor = User::where('idUsuario', $id)->get()->all()[0];
         return $profesor['nombre']." ".$profesor['apellidos'];
+    }
+
+    static function insertarNuevo($user, $password, $rol, $hash) {
+        $response = DB::table('users')->insert([
+            'idUsuario' => $user,
+            'password' => $password,
+            'rol' => $rol,
+            'hash' => $hash,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+        ]);
+        if($response != true) $response = false;
+        return ['insercionCorrecta' => $response];
     }
 
     // function pertenenciaAsignaturas() {

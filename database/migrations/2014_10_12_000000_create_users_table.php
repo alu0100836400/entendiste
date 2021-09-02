@@ -18,9 +18,10 @@ class CreateUsersTable extends Migration
             
             $table->string('idUsuario');
             $table->string('password');
-            $table->string('nombre');
-            $table->string('apellidos');
+            $table->string('nombre')->nullable();
+            $table->string('apellidos')->nullable();
             $table->unsignedTinyInteger('rol');
+            $table->string('hash')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

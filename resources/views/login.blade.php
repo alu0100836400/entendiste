@@ -24,6 +24,9 @@
                 <input type="password" name="password" required="required"/>
                 <input type="checkbox" name="keep"/>
                 <label class="frm" for="keep">Mantener sesión iniciada</label>
+                @isset($msg)
+                  <br/><label>{{$msg}}</label>
+                @endisset
                 <button id="loginBtn" type="submit" name="enviar">Entrar</button><span><a href="#">¿Olvidaste la contraseña?</a></span>
               </form>      
             </div>

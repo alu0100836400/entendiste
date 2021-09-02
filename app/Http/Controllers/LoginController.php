@@ -24,7 +24,15 @@ class LoginController extends Controller
         }
     }
 
-    public function registerUser(Request $request) {
+    public function registerTeacher(Request $request) {
+        return LoginController::registerUser($request, 1);
+    }
+
+    public function registerStudent(Request $request) {
+        LoginController::registerUser($request, 0);
+    }
+
+    public static function registerUser(Request $request, $rol) {
         if($request->password != $request->password2) {
             return view('login', ['msg' => 'Las contraseñas no coinciden']);
         }
@@ -48,13 +56,14 @@ class LoginController extends Controller
                     Pero antes debes activar tu cuenta en este enlace:
                     http://entendiste.local/verify?email='.$request->login.'&hash='.$hash.'
                     ';
-                $headers = 'From:noreply-entendiste@gmail.com' . "\r\n";
+                $headers = 'From:entendiste.ull@gmail.com' . "\r\n";
                 if(mail($to, $subject, $message, $headers)) {
-                    //poner en la base de datos el hash
-                    //devolver la vista con el mensaje: revisa tu correo!!
+                    User::insertarNuevo($request->login, $request->password, $rol, $hash);
+                    return view('login', ['msg' => 'Mensaje enviado, revisa tu correo']);
                 }
                 else {
                     //algo ha ido mal enviando el correo 
+                    return view('login', ['msg' => 'Lo sentimos. No se ha podido enviar el correo de verificación.']);
                 }
             }
         }
@@ -62,10 +71,10 @@ class LoginController extends Controller
 
     public function verify(Request $request) {
         //ver si coinciden los hash
-        return view('cuenta', ['debug' => $request]);
+        $user = User::where('idUsuario', $request->email)->get()->first();
+        if($user['hash'] == $request->hash)
+            return view('login', ['msg' => 'Ya puedes iniciar sesión']);
+        else
+            return view('login', ['msg' => 'Los hash no coinciden']);
     }
 }
-//https://code.tutsplus.com/es/tutorials/how-to-implement-email-verification-for-new-members--net-3824
-
-//hay que crear la página verify
-//hay que crear el correo noreply-entendiste

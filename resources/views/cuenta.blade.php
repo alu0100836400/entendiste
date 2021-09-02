@@ -15,6 +15,10 @@
 
 @endsection
 
+@isset($debug)
+    <label>{{$debug}}</label>
+@endisset
+
 <?php
 use App\Models\respuestas;
 
@@ -22,6 +26,6 @@ use App\Models\respuestas;
 
 //respuestas::respuestaByPregunta('15', 'alu001');
 
-echo $debug->hash;
+
 
 ?>
