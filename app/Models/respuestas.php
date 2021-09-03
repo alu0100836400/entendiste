@@ -36,6 +36,25 @@ class respuestas extends Model
         return $this->hasOne('App\Models\User');
     }
 
+    static function respuestasByPregunta($idPregunta) {
+        $response = respuestas::where('idPregunta', $idPregunta)->get()->all();
+        $entienden = 0;
+        $noEntienden = 0;
+        foreach($response as $item) {
+            if($item->attributes['respuesta'] == 0) $noEntienden++;
+            else $entienden++;
+        }
+        $responden = $entienden + $noEntienden;
+        if($responden == 0) $porcentaje = 0;
+        else {
+            $porcentaje = round(($entienden/$responden)*100);
+        } 
+        return ['porcentaje'        => $porcentaje,
+                'respondieron'      => $responden,
+                'entendieron'       => $entienden,
+                'noEntendieron'     => $noEntienden];
+    }
+
     static function respuestaByPregunta($idPregunta, $user) {
         $response = respuestas::where('idPregunta', $idPregunta)->where('idAlumno', $user)->get()->all();
         $array_ = [];
