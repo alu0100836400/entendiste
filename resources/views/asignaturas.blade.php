@@ -6,18 +6,19 @@
 @endsection
 
 @section('content')
+<!-- el ordenamiento no rula todavia
     <div class="controls">
         <label>Filter:</label>
-        <!-- el ordenamiento no rula todavia -->
         <button class="filter" data-filter="all">Todo</button>
         <button class="filter" data-filter=".category-1">A-Z</button>
         <button class="filter" data-filter=".category-2">Fecha</button>
-      </div>
+    </div>
+-->
       
-      <div class="pager-list">
+    <div class="pager-list">
           <!-- Pagination buttons will be generated here -->
-      </div>
-      @include('components.add-button')
+    </div>
+    @include('components.add-button')
     <div id="Container" class="container">
         {{$cont = 0}}
         @foreach ($asignaturas as $asignatura)
