@@ -5,6 +5,7 @@ use App\Http\Controllers\api\RespuestasController;
 use App\Http\Controllers\api\AsignaturasController;
 use App\Http\Controllers\api\AsignaturaController;
 use App\Http\Controllers\api\UserController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ use App\Http\Controllers\api\UserController;
 
 Route::get('/user', [UserController::class, 'index']);
 Route::get('/login', [UserController::class, 'validateLogin']);
+Route::post('/register', [LoginController::class, 'registerStudent']);
 Route::get('/asignaturas', [AsignaturasController::class, 'index']);
 Route::get('/asignaturas-buscar', [AsignaturasController::class, 'search']);
 Route::get('/asignaturas-ingresar', [AsignaturasController::class, 'access']);

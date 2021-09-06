@@ -25,14 +25,6 @@ class LoginController extends Controller
     }
 
     public function registerTeacher(Request $request) {
-        return LoginController::registerUser($request, 1);
-    }
-
-    public function registerStudent(Request $request) {
-        LoginController::registerUser($request, 0);
-    }
-
-    public static function registerUser(Request $request, $rol) {
         if($request->password != $request->password2) {
             return view('login', ['msg' => 'Las contraseñas no coinciden']);
         }
@@ -42,30 +34,49 @@ class LoginController extends Controller
                 return view('login', ['msg' => 'El usuario ya existe']);
             }
             else {
-                $hash = md5(rand(0, 1000));
-                $to = $request->login;
-                $subject = 'Registro | Verificación';
-                $message = '
-                    Gracias por registrarte en Entendiste!
-                    Tu cuenta ha sido creada, puedes iniciar sesión con estas credenciales:
-                    ---------------------------------------------
-                    Usuario: '.$request->login.'
-                    Contraseña: '.$request->password.'
-                    ---------------------------------------------
-                    
-                    Pero antes debes activar tu cuenta en este enlace:
-                    http://entendiste.local/verify?email='.$request->login.'&hash='.$hash.'
-                    ';
-                $headers = 'From:entendiste.ull@gmail.com' . "\r\n";
-                if(mail($to, $subject, $message, $headers)) {
-                    User::insertarNuevo($request->login, $request->password, $rol, $hash);
-                    return view('login', ['msg' => 'Mensaje enviado, revisa tu correo']);
-                }
-                else {
-                    //algo ha ido mal enviando el correo 
-                    return view('login', ['msg' => 'Lo sentimos. No se ha podido enviar el correo de verificación.']);
-                }
+                if(LoginController::registerUser($request, 1)) return view('login', ['msg' => 'Mensaje enviado, revisa tu correo']);
+                else return view('login', ['msg' => 'Lo sentimos. No se ha podido enviar el correo de verificación.']);
             }
+        }
+    }
+
+    public function registerStudent(Request $request) {
+        $user = User::where('idUsuario', $request->login)->get();
+        if($user->count() > 0) {
+            return json_encode(['error' => (bool)true, 
+                                'msg_error' => 'El usuario ya existe']);
+        }
+        else {
+            if(LoginController::registerUser($request, 0)) return json_encode([ 'error' => (bool)false, 
+                                                                                'msg_error' => '']);
+            else return json_encode(['error' => (bool)true, 
+                                     'msg_error' => 'Lo sentimos. No se ha podido enviar el correo de verificación.']);
+        }
+    }
+
+    public static function registerUser(Request $request, $rol) {
+        $hash = md5(rand(0, 1000));
+        $to = $request->login;
+        $subject = 'Registro | Verificación';
+        $message = '
+            Gracias por registrarte en Entendiste!
+            Tu cuenta ha sido creada, puedes iniciar sesión con estas credenciales:
+            ---------------------------------------------
+            Usuario: '.$request->login.'
+            Contraseña: '.$request->password.'
+            ---------------------------------------------
+            
+            Pero antes debes activar tu cuenta en este enlace:
+            http://entendiste.local/verify?email='.$request->login.'&hash='.$hash.'
+            ';
+        $headers = 'From:entendiste.ull@gmail.com' . "\r\n";
+        if(mail($to, $subject, $message, $headers)) {
+            User::insertarNuevo($request->login, $request->password, $rol, $hash);
+            return true;
+        }
+        else {
+            //algo ha ido mal enviando el correo 
+            return false;
         }
     }
 
