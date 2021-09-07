@@ -32,7 +32,9 @@
             @endforeach
           </ul>
         </li>
+        <!-- la pestaña de cuenta proximamente...
         <li><a href="{{route('cuenta')}}">Cuenta<i class="fas fa-caret-down"></i></a></li>
+        -->
         <li><a href="{{route('login')}}">Salir</a></li>
       </ul>
     </nav>

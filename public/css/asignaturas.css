@@ -70,7 +70,7 @@
   }
   
   .container .mix.category-1{
-    border-top: 2px solid limegreen;
+    border-top: 2px solid rgb(254,182,160); /*limegreen;*/
     font-size: 16px; /*para ver lo que hay dentro*/
   }
   

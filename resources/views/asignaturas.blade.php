@@ -23,7 +23,11 @@
         {{$cont = 0}}
         @foreach ($asignaturas as $asignatura)
             {{$cont++}}
-            <a class="li-asignaturas" href="{{route('asignatura', $asignatura['id'])}}"><div class="mix category-1" data-myorder="{{$cont}}" asignatura="{{$asignatura['nombre']}}"></div></a>
+            <a class="li-asignaturas" href="{{route('asignatura', $asignatura['id'])}}">
+                <div class="mix category-1" data-myorder="{{$cont}}" asignatura="{{$asignatura['nombre']}}"><!--
+                    <div class="topics-info">Han contestado x personas</div><br/>
+                    <div class="topics-info">Dado de alta por x el día x</div> -->
+                </div></a>
         @endforeach
         <div class="gap"></div>
         <div class="gap"></div>
